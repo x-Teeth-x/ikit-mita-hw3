@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,8 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Car.cs" />
+    <Compile Include="CarCategory.cs" />
     <Compile Include="CarPassport.cs" />
-    <Compile Include="Category.cs" />
+    <Compile Include="DriverCategory.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

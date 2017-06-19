@@ -11,7 +11,7 @@ namespace LadaCar
     {
         static void Main(string[] args)
         {
-            Car car = new Car("Лада", Category.D) { Color = ConsoleColor.DarkMagenta };
+            Car car = new Car("Лада", CarCategory.D) { Color = ConsoleColor.DarkMagenta };
             try
             {
                 Console.WriteLine(car.CarPassport.Owner.Name);
@@ -21,8 +21,8 @@ namespace LadaCar
                 Console.WriteLine("Ошибка: У лады нет хозяина");
             }
             Driver driver = new Driver(new DateTime(2009, 12, 23), "Вольдемар");
-            driver.OwnCategory.Add(Category.B);
-            driver.OwnCategory.Add(Category.C);
+            driver.Category.Add(DriverCategory.B);
+            driver.Category.Add(DriverCategory.C);
             try
             {
                 car.ChangeOwner(driver, "o777oo");
@@ -31,7 +31,7 @@ namespace LadaCar
             {
                 Console.WriteLine("\nНе получилось закрепить машину за водителем. Ошибка: " + e.Message);
             }
-            driver.OwnCategory.Add(Category.D);
+            driver.Category.Add(DriverCategory.D);
             car.ChangeOwner(driver, "o777oo");
             Console.WriteLine("\nНомер машины водителя: {0} \nВладелец машины: {1}", driver.Car.CarNumber, car.CarPassport.Owner.Name);
             Console.ReadKey();

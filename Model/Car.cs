@@ -8,11 +8,11 @@ namespace Model
 {
     public class Car
     {
-        public readonly string Model;
+        public string Model { get; } //close #1
         public ConsoleColor Color = ConsoleColor.Blue;
         public string CarNumber { get; private set; }
-        public readonly Category CarCategory;
-        public readonly CarPassport CarPassport;
+        public readonly CarCategory CarCategory; //close #3
+        public CarPassport CarPassport { get; } //close #1
 
         public void ChangeOwner(Driver owner, string numb)
         {
@@ -21,7 +21,7 @@ namespace Model
             CarPassport.Owner = owner;
         }
 
-        public Car(string model, Category category)
+        public Car(string model, CarCategory category)
         {
             Model = model;
             CarCategory = category;

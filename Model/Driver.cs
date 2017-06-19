@@ -3,30 +3,55 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic;
 
 namespace Model
 {
     public class Driver
     {
-        public readonly DateTime LicenceDate;
-        public readonly string Name;
+        public DateTime LicenceDate { get; } //close #1
+        public string Name { get; } //close #1
 
-        public TimeSpan Experience => DateTime.Today - LicenceDate;
-
-        private List<Category> _category;
-
-        public List<Category> OwnCategory
+        public int Experience
         {
-            get { return _category ?? (_category = new List<Category>()); }
-            set { _category = value; }
+            set
+            {
+            }
+            get
+            {
+                TimeSpan Difference = DateTime.Today - LicenceDate;
+                return Difference.Days / 365; ;
+            }
         }
+
+        private List<DriverCategory> _category;
+
+        public List<DriverCategory> Category
+        {
+            set
+            { _category = value; }
+            get
+            { return _category ?? (_category = new List<DriverCategory>());  }
+        }
+
+        //public List<DriverCategory> GetOwnCategory()
+        //{
+        //    return _category ?? (_category = new List<DriverCategory>());
+        //}
+
+        //public void SetOwnCategory(List<DriverCategory> value)
+        //{
+        //    _category = value;
+        //}
+
         public Car Car { get; private set; }
 
         public void OwnCar(Car car)
         {
-            foreach (var i in OwnCategory)
+            foreach (var i in Category)
             {
-                if (i.Equals(car.CarCategory))
+                //if (i.Equals(car.CarCategory))
+                if (i.Equals((DriverCategory)car.CarCategory))
                 {
                     Car = car;
                     return;

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public enum Category
+    public enum CarCategory
     {
-        A,
         B,
         C,
         D,
