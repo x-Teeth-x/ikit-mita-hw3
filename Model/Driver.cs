@@ -34,23 +34,12 @@ namespace Model
             { return _category ?? (_category = new List<DriverCategory>());  }
         }
 
-        //public List<DriverCategory> GetOwnCategory()
-        //{
-        //    return _category ?? (_category = new List<DriverCategory>());
-        //}
-
-        //public void SetOwnCategory(List<DriverCategory> value)
-        //{
-        //    _category = value;
-        //}
-
         public Car Car { get; private set; }
 
         public void OwnCar(Car car)
         {
             foreach (var i in Category)
             {
-                //if (i.Equals(car.CarCategory))
                 if (i.Equals((DriverCategory)car.CarCategory))
                 {
                     Car = car;
